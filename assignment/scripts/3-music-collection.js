@@ -37,3 +37,13 @@ function showCollection(array) {
 }
 // testing showCollection
 showCollection(collection);
+
+
+// searches for artist in collection
+function findByArtist(artist) {
+    const results = collection.filter(album => album.artist === artist);
+    return results;
+}
+console.log('Searching collection for Metallica:', findByArtist('Metallica'));
+console.log('Searching collection for Boston:', findByArtist('Boston'));
+console.log('Searching collection for Dr. Dre:', findByArtist('Dr. Dre'));
