@@ -47,3 +47,24 @@ function findByArtist(artist) {
 console.log('Searching collection for Metallica:', findByArtist('Metallica'));
 console.log('Searching collection for Boston:', findByArtist('Boston'));
 console.log('Searching collection for Dr. Dre:', findByArtist('Dr. Dre'));
+
+
+// searches collection by artist or year
+function search(searchParam) {
+    if (searchParam === undefined || searchParam === '' || searchParam === null) {
+        return collection;
+    } else {
+        const results = collection.filter(album => 
+            album.artist === searchParam || album.yearPublished === searchParam);
+            return results;
+    }
+}
+console.log('Test - Metallica:', search('Metallica'));
+console.log('Test - 2008:', search(2008));
+console.log('Test - 1999:', search(1999));
+console.log('Test - Boston:', search('Boston'));
+console.log('Test - Dr. Dre, should be empty array:', search('Dr. Dre'));
+console.log('Test - 2020:', search(2020));
+console.log('Test - empty, should be collection:', search(''));
+console.log('Test - undefined, should be collection:', search());
+console.log('Test - null, should be collection:', search(null));
